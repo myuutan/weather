@@ -1,0 +1,35 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- 青い背景 -->
+  <rect width="200" height="200" rx="40" fill="#4299e1"/>
+  
+  <!-- 太陽 -->
+  <circle cx="65" cy="65" r="30" fill="#ffc107"/>
+  
+  <!-- 太陽光線 -->
+  <g stroke="#ffc107" stroke-width="6" stroke-linecap="round">
+    <line x1="65" y1="20" x2="65" y2="10"/>
+    <line x1="65" y1="120" x2="65" y2="110"/>
+    <line x1="20" y1="65" x2="10" y2="65"/>
+    <line x1="120" y1="65" x2="110" y2="65"/>
+    <line x1="33" y1="33" x2="26" y2="26"/>
+    <line x1="104" y1="104" x2="97" y2="97"/>
+    <line x1="33" y1="97" x2="26" y2="104"/>
+    <line x1="104" y1="26" x2="97" y2="33"/>
+  </g>
+  
+  <!-- 雲 -->
+  <g>
+    <circle cx="130" cy="110" r="25" fill="white"/>
+    <circle cx="100" cy="110" r="20" fill="white"/>
+    <circle cx="155" cy="110" r="20" fill="white"/>
+    <circle cx="125" cy="95" r="18" fill="white"/>
+    <rect x="100" y="110" width="55" height="25" fill="white"/>
+  </g>
+  
+  <!-- 雨滴 -->
+  <g fill="#a0d2ff">
+    <path d="M110,145 l-5,15 a5,5 0 0,0 10,0 z"/>
+    <path d="M130,145 l-5,15 a5,5 0 0,0 10,0 z"/>
+    <path d="M150,145 l-5,15 a5,5 0 0,0 10,0 z"/>
+  </g>
+</svg>
