@@ -2,20 +2,19 @@
 import {useState} from "react";
 import Image from "next/image"
 import WeatherIcon from "@/components/weatherIcon"
-import {WeatherType} from "@/types/weather"
+import {ForecastType} from "@/types/weather"
 
 import { getWeatherIconUrl } from "@/utils/weather";
 import { getWeatherMain } from "@/utils/weather";
-type WeatherDisplayProps = {
-  weather: WeatherType,
-  city: string,
+type ForecastDisplayProps = {
+  forecast: ForecastType,
   loading: boolean,
 }
 
-export default function WeatherDisplay({
-  weather, city, loading
+export default function ForecastDisplay({
+  forecast, loading
 
-}:WeatherDisplayProps){
+}:ForecastDisplayProps){
     return (
         <>
         { loading || 
