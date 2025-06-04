@@ -21,18 +21,13 @@ export default function ForecastDisplay({
           (
           <>
             {
-              weather && (
+              forecast && forecast.list.map((weather: any, index: number) => (
                 <>
-
-                <WeatherIcon code = {weather.weather[0].icon}
-                />
-                <p className="text-center">{city}</p>
-                <p className="text-center text-gray-800">{weather.weather[0].main}</p>
-                <p className="text-center text-gray-800">{weather.weather[0].description}</p>
-                <p className="text-8xl font-thin font-mono text-center text-gray-800" >{Math.round(weather.main.feels_like)}&#176;</p>
+                  <WeatherIcon code = {weather.weather[0].icon}/>
+                  <p>{weather.main.feels_likes}</p>
                 
                 </>
-              )
+              ))
             }
           </>
           )

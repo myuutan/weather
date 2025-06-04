@@ -5,6 +5,7 @@ import Form from "@/components/form"
 import {WeatherType} from "@/types/weather"
 import {ForecastType} from "@/types/weather"
 import WeatherDisplay from "@/components/weatherDisplay";
+import ForecastDisplay from "@/components/forecastDisplay";
 
 
 export default function Weather(){
@@ -97,6 +98,9 @@ export default function Weather(){
             <Form setLat={setLat} setLon={setLon} />
             { weather && (
                 <WeatherDisplay weather={weather}  city={city} loading={loading} />
+            )}
+            { forecast && (
+                <ForecastDisplay forecast={forecast} loading={loading} />
             )}
         </div>
     )
