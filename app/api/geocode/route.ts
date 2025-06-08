@@ -36,10 +36,10 @@ export async function GET(request: Request) {
   }
  
   const data = (await res.json()) as Array<{ lat: string; lon: string }>;
+  console.log('[DEBUG] Nominatim Response:', data);
   if (data.length === 0) {
     return NextResponse.json({ error: '該当都市が見つかりません' }, { status: 404 });
   }
- 1
   const { lat, lon } = data[0];
   return NextResponse.json({ lat, lon });
 }

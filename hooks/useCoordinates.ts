@@ -5,6 +5,7 @@ import useSWRMutation from 'swr/mutation';
 export interface Coordinates {
   lat: number;
   lon: number;
+  city: string;
 }
  
 async function fetchCoordinates(
@@ -13,6 +14,7 @@ async function fetchCoordinates(
 ): Promise<Coordinates> {
   const res = await fetch(`/api/geocode?city=${encodeURIComponent(city)}`);
   const data = await res.json();
+  console.log('APIレスポンス:', data);
   if (!res.ok) throw new Error(data.error || `ステータス ${res.status}`);
   return {
     lat: parseFloat(data.lat),

@@ -11,15 +11,14 @@ export default function Home() {
         <Image
           className=""
           src="/weather-app-icon.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
+          alt="logo"
+          width={128}
+          height={128}
           priority
         />
         </div>
         <Weather />
       </main>
-      
     </div>
   );
 }
