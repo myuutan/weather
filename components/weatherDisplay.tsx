@@ -1,11 +1,7 @@
 'use client'
-import {useState} from "react";
-import Image from "next/image"
 import WeatherIcon from "@/components/weatherIcon"
 import {WeatherType} from "@/types/weather"
 
-import { getWeatherIconUrl } from "@/utils/weather";
-import { getWeatherMain } from "@/utils/weather";
 type WeatherDisplayProps = {
   weather: WeatherType,
   city: string,

@@ -1,18 +1,11 @@
 import Image from "next/image";
 
-import Form from "@/components/form"
-import Weather from "@/components/weather"; 
 
 export default function Home() {
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        
-        
-        <Form />
-        <Weather tenki="晴れ" />
-        <Weather tenki="曇り" ondo={26} />
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
         <a
@@ -27,6 +20,7 @@ export default function Home() {
             alt="File icon"
             width={16}
             height={16}
+            priority
           />
           Learn
         </a>
@@ -42,6 +36,7 @@ export default function Home() {
             alt="Window icon"
             width={16}
             height={16}
+            priority
           />
           Examples
         </a>
@@ -57,6 +52,7 @@ export default function Home() {
             alt="Globe icon"
             width={16}
             height={16}
+            priority
           />
           Go to nextjs.org →
         </a>

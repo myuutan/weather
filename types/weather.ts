@@ -44,14 +44,14 @@ export type WeatherType = {
   weather: WeatherWeatherType[],
 }
 
-type ForecastListType={
+export type ForecastListType={
   clouds: {
     all: number
   },
   dt : number,
   dt_txt: string,
   main:{
-    fells_like: number,
+    feels_like: number,
     grnd_level: number,
     humidity: number,
     pressure: number,
@@ -66,13 +66,7 @@ type ForecastListType={
     pod: string,
   },
   visibility: number,
-  weather: {
-    descirption: string,
-    icon: string,
-    id: number,
-    main: string,
-    length: number,
-  },
+  weather: WeatherWeatherType[],
   wind: {
     deg: number,
     gust: number,

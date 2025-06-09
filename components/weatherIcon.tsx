@@ -27,6 +27,7 @@ export default function WeatherIcon({ code }: WeatherIconProps) {
       width={200}
       height={200}
       alt="Weather icon"
+      priority
     />
   );
 }

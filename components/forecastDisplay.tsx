@@ -1,11 +1,7 @@
 'use client'
-import {useState} from "react";
-import Image from "next/image"
 import WeatherIcon from "@/components/weatherIcon"
-import {ForecastType} from "@/types/weather"
+import {ForecastType, ForecastListType} from "@/types/weather"
 
-import { getWeatherIconUrl } from "@/utils/weather";
-import { getWeatherMain } from "@/utils/weather";
 type ForecastDisplayProps = {
   forecast: ForecastType,
   loading: boolean,
@@ -21,11 +17,10 @@ export default function ForecastDisplay({
           (
           <>
             {
-              forecast && forecast.list.map((weather: any, index: number) => (
+              forecast && forecast.list.map((weather: ForecastListType) => (
                 <>
                   <WeatherIcon code = {weather.weather[0].icon}/>
-                  <p>{weather.main.feels_likes}</p>
-                
+                  <p>{weather.main.feels_like}</p>
                 </>
               ))
             }

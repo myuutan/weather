@@ -1,12 +1,10 @@
 'use client'
-import { log } from "console";
-import {useState, useEffect, use} from "react";
+import {useState, useEffect,} from "react";
 import Form from "@/components/form"
 import {WeatherType} from "@/types/weather"
 import {ForecastType} from "@/types/weather"
 import WeatherDisplay from "@/components/weatherDisplay";
 import ForecastDisplay from "@/components/forecastDisplay";
-
 
 export default function Weather(){
     const [lat, setLat] = useState<number | null>(null);
@@ -29,6 +27,7 @@ export default function Weather(){
             setForecast(json)
 
         } catch (err) {
+            console.log("err===>",err)
             // setError(err.message);
         } finally {
             // setLoading(false);
@@ -50,6 +49,7 @@ export default function Weather(){
             setCity(json.name)
 
         } catch (err) {
+            console.log("err===>",err)
             // setError(err.message);
         } finally {
             // setLoading(false);

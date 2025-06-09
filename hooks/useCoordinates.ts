@@ -5,9 +5,8 @@ import useSWRMutation from 'swr/mutation';
 export interface Coordinates {
   lat: number;
   lon: number;
-  city: string;
 }
- 
+
 async function fetchCoordinates(
   key: string,
   { arg: city }: { arg: string }

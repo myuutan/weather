@@ -1,8 +1,6 @@
 'use client';
 
-import { useEffect, useState } from "react";
-import WeatherIcon from "@/components/weatherIcon";
-import { WeatherType } from "@/types/weather";
+import { useState } from "react";
 import { useCoordinates } from "@/hooks/useCoordinates";
 interface FormProps {
   setLat: (lat: number) => void;
