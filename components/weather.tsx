@@ -21,8 +21,6 @@ export default function Weather(){
             const json = await res.json();
             //setData(json);
             console.log("json===>",json)
-            console.log(json.weather[0].main)
-            console.log(json.weather[0])
 
             setForecast(json)
 
