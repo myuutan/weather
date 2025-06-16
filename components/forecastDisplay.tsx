@@ -38,14 +38,14 @@ export default function ForecastDisplay({
                 // 日付のみ取得
                 const weatherDate = Number(weather.jst_dt_txt.split(' ')[0].split('/')[2])
                 console.log('weatherDate====>',weather.jst_dt_txt)
-                console.log('time====>',dtUnixTime,weather.jst_dt)
+                console.log('time====>',dtUnixTime,weather.dt,weather.jst_dt_txt,weather.main.temp)
                 if(dtUnixTime > weather.dt){return null}
                 if(weatherDate != day &&  weatherDate != nextDay){return null}
 
                 return(
                   <div key={`Weather${String(index)}`} >
                       <div>
-                      {weather.dt_txt.split(' ')[1].split(':')[0]}
+                      {weather.jst_dt_txt.split(' ')[1].split(':')[0]}
                       <br />
                       { weather.main.temp}
                       </div>
