@@ -50,8 +50,8 @@ export type ForecastListType={
   },
   dt : number,
   dt_txt: string,
-  jst_dt? : number,
-  jst_dt_txt?: string,
+  jst_dt : string,
+  jst_dt_txt: string,
   main:{
     feels_like: number,
     grnd_level: number,

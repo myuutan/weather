@@ -12,7 +12,7 @@ export default function ForecastDisplay({
 
 }:ForecastDisplayProps){
     const now = new Date()
-    const dt = new Date(now.getTime() + 9 * 60 *60)
+    const dt = new Date(now.getTime() +(0) * 60 *60)
     // なぜ9 - 3なのか？
     const dtUnixTime = Math.floor(Date.now() /1000) + (0) * 60 * 60
 
@@ -36,9 +36,10 @@ export default function ForecastDisplay({
             {
               forecast && forecast.list.map((weather: ForecastListType, index:number ) => {
                 // 日付のみ取得
-                const weatherDate = Number(weather.jst_dt_txt.split(' ')[0].split('-')[2])
-                console.log('weatherDate====>',weatherDate)
-                if(dtUnixTime > weather.jst_dt){return null}
+                const weatherDate = Number(weather.jst_dt_txt.split(' ')[0].split('/')[2])
+                console.log('weatherDate====>',weather.jst_dt_txt)
+                console.log('time====>',dtUnixTime,weather.jst_dt)
+                if(dtUnixTime > weather.dt){return null}
                 if(weatherDate != day &&  weatherDate != nextDay){return null}
 
                 return(
