@@ -14,24 +14,47 @@ export default function Weather(){
     const [forecast, setForecast] = useState<ForecastType | null>(null);
     const [loading, setLoading] = useState<boolean>(false)
 
-    async function fetchForecast (latitude:number, longitude:number){
-        try {
-            const res = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=metric&lang=ja&appid=${process.env.NEXT_PUBLIC_API_KEY}`);
+
+interface ForecastItem {
+  dt: number;           // UNIX UTC 秒
+  dt_txt: string;       // "YYYY-MM-DD HH:mm:ss" (UTC)
+  // …その他のプロパティ
+}
+
+async function fetchForecast (latitude:number, longitude:number){
+  try {
+          const res = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=metric&lang=ja&appid=${process.env.NEXT_PUBLIC_API_KEY}`);
             if (!res.ok) throw new Error(`HTTP エラー: ${res.status}`);
-            const json = await res.json();
-            //setData(json);
-            console.log("json===>",json)
-
-            setForecast(json)
-
-        } catch (err) {
-            console.log("err===>",err)
-            // setError(err.message);
-        } finally {
-            // setLoading(false);
-            setLoading(false);
-        }
-    }
+    const data = await res.json() as ForecastType;
+ 
+    // list の各要素を JST 表示用にマッピング
+    const convertedList = data.list.map(item => {
+      // UNIX 秒 → Date → JST ローカル文字列
+      const jstDt = new Date(item.dt * 1000)
+        .toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' });
+ 
+      // ISO 文字列(UTC) → Date → JST ローカル文字列
+      const jstDtTxt = new Date(item.dt_txt + ' UTC')
+        .toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' });
+ 
+      return {
+        ...item,
+        jst_dt: jstDt,
+        jst_dt_txt: jstDtTxt,
+      };
+    });
+ 
+    // state にセット
+    setForecast({
+      ...data,
+      list: convertedList
+    });
+  } catch (err) {
+    console.error('fetchForecast error:', err);
+  } finally {
+    setLoading(false);
+  }
+  }
 
     async function fetchWeather (latitude:number, longitude:number){
         try {

@@ -21,8 +21,9 @@ export default function WeatherDisplay({
               weather && (
                 <>
 
-                <WeatherIcon code = {weather.weather[0].icon}
-                />
+              <div className="flex justify-center">
+                <WeatherIcon code = {weather.weather[0].icon} />
+              </div>
                 <p className="text-center">{city}</p>
                 <p className="text-center text-gray-800">{weather.weather[0].main}</p>
                 <p className="text-center text-gray-800">{weather.weather[0].description}</p>
