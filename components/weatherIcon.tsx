@@ -1,10 +1,7 @@
-import Image from "next/image";
-
 type WeatherIconProps = {
   code: string;
 };
 
-// SVGファイル名と対応付けたマップ
 const weatherIconMap: Record<string, string> = {
   "01d": "/weather/sun.svg",
   "02d": "/weather/cloud-sun.svg",
