@@ -8,7 +8,7 @@ import Drizzle from "@/public/weather/drizzle.svg";  // エイリアスが通っ
 import lightning from "@/public/weather/lightning.svg";  // エイリアスが通っていればOK
 import Snow from "@/public/weather/snow.svg";  // エイリアスが通っていればOK
 import Fog from "@/public/weather/fog.svg";  // エイリアスが通っていればOK
-import { symlink } from 'fs';
+//import { symlink } from 'fs';
 
  
 type WeatherIconProps = {

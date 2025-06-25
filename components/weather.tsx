@@ -15,10 +15,9 @@ export default function Weather(){
     const [loading, setLoading] = useState<boolean>(false)
 
 
-interface ForecastItem {
-  dt: number;           // UNIX UTC 秒
-  dt_txt: string;       // "YYYY-MM-DD HH:mm:ss" (UTC)
-  // …その他のプロパティ
+//interface ForecastItem {
+  //dt: number;           // UNIX UTC 秒
+  //dt_txt: string;       // "YYYY-MM-DD HH:mm:ss" (UTC)
 }
 
 async function fetchForecast (latitude:number, longitude:number){
