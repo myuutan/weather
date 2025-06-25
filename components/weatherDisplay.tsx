@@ -12,6 +12,8 @@ export default function WeatherDisplay({
   weather, city, loading
 
 }:WeatherDisplayProps){
+  const iconCode = weather.weather?.[0]?.icon;
+  console.log("🧭 iconCode in WeatherDisplay:", iconCode);
     return (
         <>
         { loading || 
@@ -22,7 +24,8 @@ export default function WeatherDisplay({
                 <>
 
               <div className="flex justify-center">
-                <WeatherIcon code = {weather.weather[0].icon} />
+                <WeatherIcon code = {iconCode} />
+
               </div>
                 <p className="text-center">{city}</p>
                 <p className="text-center text-gray-800">{weather.weather[0].main}</p>
