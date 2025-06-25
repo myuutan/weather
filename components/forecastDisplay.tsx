@@ -1,5 +1,4 @@
 'use client'
-import WeatherIcon from "@/components/weatherIcon"
 import {ForecastType, ForecastListType} from "@/types/weather"
 
 type ForecastDisplayProps = {
