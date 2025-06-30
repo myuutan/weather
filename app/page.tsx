@@ -1,4 +1,3 @@
-import Image from "next/image";
 
 import Weather from "@/components/weather"; 
 
@@ -18,7 +17,6 @@ export default function Home() {
             height={128}
             priority
           />
-        </div>
         */}
         <Weather />
       </main>
