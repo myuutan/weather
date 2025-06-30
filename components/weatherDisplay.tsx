@@ -30,7 +30,7 @@ export default function WeatherDisplay({
                 <p className="text-center">{city}</p>
                 <p className="text-center text-gray-800">{weather.weather[0].main}</p>
                 <p className="text-center text-gray-800">{weather.weather[0].description}</p>
-                <p className="text-8xl font-thin font-mono text-center text-gray-800" >{Math.round(weather.main.feels_like)}&#176;</p>
+                <p className="mt-4 sm:mt-8 ms-8 text-8xl font-thin font-mono text-center text-gray-800" >{Math.round(weather.main.feels_like)}&#176;</p>
                 
                 </>
               )

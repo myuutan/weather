@@ -31,7 +31,7 @@ export default function Form({ setLat, setLon}: FormProps) {
   return (
     <div>
       <input
-        className="mb-10 w-full rounded-xl border-2 bg-amber-50 text-gray-900 placeholder:text-gray-900 text-2xl md:text-amber-950"
+        className="mb-10 w-full rounded-xl border-2 bg-amber-50 text-gray-900 placeholder:ps-2 placeholder:text-gray-900 text-base sm:text-2xl md:text-amber-950"
         type="text"
         placeholder="都市名を入力してください"
         onChange={e => setFormValue(e.target.value)}
