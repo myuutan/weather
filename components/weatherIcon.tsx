@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 type WeatherIconProps = {
   code: string;
 };
@@ -31,7 +33,7 @@ export default function WeatherIcon({ code }: WeatherIconProps) {
   if (!iconPath) return <p>アイコンが見つかりません</p>;
 
   return (
-    <img
+    <Image
       src={iconPath}
       width={200}
       height={200}
