@@ -21,45 +21,57 @@ function useIsSmallScreen() {
 }
 
 export default function ForecastDisplay({
-  forecast, loading
+  forecast,
+  loading
 }: ForecastDisplayProps) {
   const isSmallScreen = useIsSmallScreen();
   const now = new Date();
-  const todayDate = now.getDate();
-  const tomorrowDate = new Date(now);
-  tomorrowDate.setDate(todayDate + 1);
-  const tomorrowDay = tomorrowDate.getDate();
+  const todayStr = now.toDateString();
+  const tomorrow = new Date(now);
+  tomorrow.setDate(now.getDate() + 1);
+  const tomorrowStr = tomorrow.toDateString();
 
   return (
     <>
       {!loading && (
-        <div className="relative grid grid-flow-col auto-cols-min gap-2 sm:gap-4 overflow-x-auto">
-          {forecast?.list.map((weather: ForecastListType, index: number) => {
-            const dateParts = weather.jst_dt_txt?.split(' ')[0]?.split('/');
-            if (!dateParts || dateParts.length !== 3) return null;
+        <div className="w-full overflow-x-auto">
+          <div className="relative grid grid-flow-col auto-cols-min gap-2 sm:gap-4">
+            {forecast?.list.map((weather: ForecastListType, index: number) => {
+              const dateStr = weather.jst_dt_txt?.split(' ')[0]; // e.g., "2025/07/01"
+              const timeStr = weather.jst_dt_txt?.split(' ')[1]; // e.g., "12:00:00"
 
-            const forecastDay = Number(dateParts[2]);
+              if (!dateStr || !timeStr) return null;
 
-            // ✅ 今日か明日以外はスキップ
-            if (forecastDay !== todayDate && forecastDay !== tomorrowDay) return null;
+              const [year, month, day] = dateStr.split('/').map(Number);
+              const forecastDateObj = new Date(year, month - 1, day);
+              const forecastDateStr = forecastDateObj.toDateString();
 
-            const temp = isSmallScreen
-              ? Math.round(weather.main.temp)
-              : weather.main.temp.toFixed(1);
+              if (
+                forecastDateStr !== todayStr &&
+                forecastDateStr !== tomorrowStr
+              ) return null;
 
-            return (
-              <div key={`Weather${index}`} className="text-center">
-                <div className="text-[10px] sm:text-base font-bold text-center">
-                  {weather.jst_dt_txt.split(' ')[1].split(':')[0]}
+              const temp = isSmallScreen
+                ? Math.round(weather.main.temp)
+                : weather.main.temp.toFixed(1);
+
+              return (
+                <div
+                  key={`Weather${index}`}
+                  className="text-center border border-blue-300 p-1 rounded"
+                >
+                  <div className="text-[10px] sm:text-base font-bold text-center">
+                    {timeStr.split(':')[0]}
+                  </div>
+                  <div className="text-[10px] sm:text-base font-light text-center">
+                    {temp}°
+                  </div>
                 </div>
-                <div className="text-[10px] sm:text-base font-light text-center">
-                  {temp}
-                </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       )}
     </>
-  )
+  );
 }
