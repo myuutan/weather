@@ -52,7 +52,7 @@ export default function ForecastDisplay({
         { loading || 
           (
           <>
-            <div className="relative grid grid-flow-col auto-cols-miu  gap-2 sm:gap-4">
+            <div className="relative grid grid-flow-col auto-cols-min  gap-2 sm:gap-4">
             {
               forecast && forecast.list.map((weather: ForecastListType, index:number ) => {
                 // 日付のみ取得
@@ -62,7 +62,7 @@ export default function ForecastDisplay({
                 if(dtUnixTime > weather.dt){return null}
 //                if(weatherDate != day &&  weatherDate != nextDay){return null}
                 console.log('weatherDate,nextDay==>',weatherDate,nextDay)
-                if(weatherDate != day &&  weatherDate != nextDay){return null}
+                //if(weatherDate != day &&  weatherDate != nextDay){return null}
                 // 温度を画面サイズに応じてフォーマット
                 const temp = isSmallScreen
                 ? Math.round(weather.main.temp) // 小数なし
