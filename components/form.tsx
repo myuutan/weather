@@ -38,7 +38,7 @@ export default function Form({ setLat, setLon}: FormProps) {
         onKeyDown={handleKeyDown}
       />
  
-      {isMutating && <p className="text-center text-sm">読み込み中...</p>}
+      {isMutating && <p className="text-center text-sm">roading....</p>}
       {error && <p className="text-red-500 text-center">{error.message}</p>}
     </div>
   );

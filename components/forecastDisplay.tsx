@@ -52,7 +52,7 @@ export default function ForecastDisplay({
         { loading || 
           (
           <>
-            <div className="relative grid grid-cols-12 gap-2 sm:gap-4">
+            <div className="relative grid grid-flow-col auto-cols-miu  gap-2 sm:gap-4">
             {
               forecast && forecast.list.map((weather: ForecastListType, index:number ) => {
                 // 日付のみ取得
