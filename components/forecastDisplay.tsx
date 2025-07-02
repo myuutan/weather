@@ -35,7 +35,7 @@ export default function ForecastDisplay({
     <>
       {!loading && (
         <div className="w-full overflow-x-auto">
-          <div >
+          <div  grid-flow-col auto-cols-min gap-2 sm:gap-4">
             {forecast?.list.map((weather: ForecastListType, index: number) => {
               const dateStr = weather.jst_dt_txt?.split(' ')[0]; // e.g., "2025/07/01"
               const timeStr = weather.jst_dt_txt?.split(' ')[1]; // e.g., "12:00:00"
